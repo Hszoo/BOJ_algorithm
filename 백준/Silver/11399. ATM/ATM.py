@@ -2,11 +2,11 @@ import sys
 
 def atm_sol(list, length):
     list.sort()
-    sum = 0
-    for i in range(length):
-        for j in range(i + 1):
-            sum += list[j]
-    return sum
+    min_time = 0
+    for i in range(1, length + 1):
+        min_time += sum(list[0:i])
+    
+    return min_time
 
 
 n = int(sys.stdin.readline()) 
