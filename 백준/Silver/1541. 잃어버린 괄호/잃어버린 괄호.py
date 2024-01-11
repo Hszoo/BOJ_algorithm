@@ -1,14 +1,14 @@
-oper = input().split('-')
-res = 0
+expression = input().split('-')
+min_sum = 0
 
-store = []
-for exp in oper:
+temp = []
+for exp in expression:
     exp = list(map(int, exp.split('+')))
-    store.append(sum(exp))
+    temp.append(sum(exp))
 
-res = store[0] # 가장 첫번째 수는 항상 더해준다
+min_sum = temp[0] # 가장 첫번째 수는 항상 더해준다
 
-for i in range(1,len(store)):
-    res -= store[i]
+for i in range(1,len(temp)):
+    min_sum -= temp[i]
 
-print(res)
+print(min_sum)
