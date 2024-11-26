@@ -35,26 +35,20 @@ public class Main {
         });
 
         int cnt = 1;
-        for(int z=0; z<N; z++) {
-            if(countries[z][0] == K) {
-                for(int x=0; x<z; x++) {
-                    if (countries[x][1] > countries[z][1])
-                        cnt++;
-
-                    else if (countries[x][2] > countries[z][2])
-                        cnt++;
-
-                    else if (countries[x][3] > countries[x][3])
-                        cnt++;
+        for (int z = 0; z < N; z++) {
+            if (z > 0) {
+                if (countries[z][1] != countries[z - 1][1] ||
+                        countries[z][2] != countries[z - 1][2] ||
+                        countries[z][3] != countries[z - 1][3]) {
+                    cnt = z + 1;
                 }
-                break;
             }
 
+            // 결과 출력
+            if (countries[z][0] == K) {
+                System.out.println(cnt);
+                return;
+            }
         }
-
-        // 결과 출력
-        System.out.println(cnt);
-
-
     }
 }
